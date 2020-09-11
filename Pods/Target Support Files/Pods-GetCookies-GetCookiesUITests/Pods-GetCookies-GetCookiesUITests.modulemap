@@ -1,0 +1,6 @@
+framework module Pods_GetCookies_GetCookiesUITests {
+  umbrella header "Pods-GetCookies-GetCookiesUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
