@@ -20,32 +20,48 @@ class ViewController: UIViewController {
     @IBOutlet weak var cookieLbl: UILabel!
     @IBOutlet weak var userNameLbl: UILabel!
     @IBOutlet weak var fbLogin: FacebookLoginButton!
+    
+    var user: UserFB?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        ipAdressLbl.text = getIpAdress() ?? ""
-        fbLogin.loginCompletionHandler = { [weak self] (button, result) in
-            switch result {
-            case .success(let result):
-                print("Access token: \(String(describing: result.token?.tokenString))")
-                Profile.loadCurrentProfile { [weak self] (profile, error) in
-                    self?.updateMessage(with: Profile.current?.name)
-                    self?.idFbLbl.text = profile?.userID
-                    if let url = profile?.imageURL(forMode: .normal, size: .zero) {
-                        self?.urlImageLbl.text = url.absoluteString
-                    }
-                }
-            case .failure(let error):
-                print("Error occurred: \(error.localizedDescription)")
-            }
-        }
-        
-        fbLogin.logoutCompletionHandler = { [weak self] button in
-            self?.updateMessage(with: nil)
-        }
-        
-        getIpLocation { (dic, err) in
-            if let country = dic?["country"] as? String {
-                self.locationAdressLbl.text = country
+//        ipAdressLbl.text = getIpAdress() ?? ""
+//        fbLogin.loginCompletionHandler = { [weak self] (button, result) in
+//            switch result {
+//            case .success(let result):
+//
+//                print("Access token: \(String(describing: result.token?.tokenString))")
+//                Profile.loadCurrentProfile { [weak self] (profile, error) in
+//                    self?.updateMessage(with: Profile.current?.name)
+//                    self?.idFbLbl.text = profile?.userID
+//                    if let url = profile?.imageURL(forMode: .normal, size: .zero) {
+//                        self?.urlImageLbl.text = url.absoluteString
+//                    }
+//                }
+//            case .failure(let error):
+//                print("Error occurred: \(error.localizedDescription)")
+//            }
+//        }
+//
+//        fbLogin.logoutCompletionHandler = { [weak self] button in
+//            self?.updateMessage(with: nil)
+//        }
+//
+//        getIpLocation { (dic, err) in
+//            if let country = dic?["country"] as? String {
+//                self.locationAdressLbl.text = country
+//            }
+//        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let userFB = user {
+            cookieLbl.text = "Cookie: " + userFB.cookie
+            idFbLbl.text = "User ID: " + userFB.userId
+            userAgentLbl.text = "User Agent: " + userFB.userAgent
+            locationAdressLbl.text = "Location: " + userFB.locale
+            if let ip = getIpAdress() {
+                ipAdressLbl.text = "IP Address: " + ip
             }
         }
     }

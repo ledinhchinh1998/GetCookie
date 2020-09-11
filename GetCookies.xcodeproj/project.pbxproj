@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0190800B11F12E6E1B519C5F /* Pods_GetCookies_GetCookiesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B68DCEA5BC11C6898CE5934 /* Pods_GetCookies_GetCookiesUITests.framework */; };
+		8484CDED250B38B200FA4D70 /* WebFBLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484CDEC250B38B200FA4D70 /* WebFBLogin.swift */; };
+		8484CDEF250B7D0C00FA4D70 /* UserFB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8484CDEE250B7D0C00FA4D70 /* UserFB.swift */; };
 		918CDAD802349D0C0986C1A5 /* Pods_GetCookies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E04702417CC98761658979F7 /* Pods_GetCookies.framework */; };
 		AB67C050250B1E9500D0D2DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67C04F250B1E9500D0D2DA /* AppDelegate.swift */; };
 		AB67C052250B1E9500D0D2DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB67C051250B1E9500D0D2DA /* SceneDelegate.swift */; };
@@ -42,6 +44,8 @@
 		0D6C39779F65E2B33B951C49 /* Pods-GetCookies-GetCookiesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GetCookies-GetCookiesUITests.release.xcconfig"; path = "Target Support Files/Pods-GetCookies-GetCookiesUITests/Pods-GetCookies-GetCookiesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1B68DCEA5BC11C6898CE5934 /* Pods_GetCookies_GetCookiesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GetCookies_GetCookiesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7366F5B542FEAA10ACC04442 /* Pods-GetCookiesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GetCookiesTests.release.xcconfig"; path = "Target Support Files/Pods-GetCookiesTests/Pods-GetCookiesTests.release.xcconfig"; sourceTree = "<group>"; };
+		8484CDEC250B38B200FA4D70 /* WebFBLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebFBLogin.swift; sourceTree = "<group>"; };
+		8484CDEE250B7D0C00FA4D70 /* UserFB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFB.swift; sourceTree = "<group>"; };
 		89C6132AFC9004C8A03B2810 /* Pods_GetCookiesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GetCookiesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99CC6781C7B043ADC71575FD /* Pods-GetCookiesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GetCookiesTests.debug.xcconfig"; path = "Target Support Files/Pods-GetCookiesTests/Pods-GetCookiesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB67C04C250B1E9500D0D2DA /* GetCookies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetCookies.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,7 +107,6 @@
 				99CC6781C7B043ADC71575FD /* Pods-GetCookiesTests.debug.xcconfig */,
 				7366F5B542FEAA10ACC04442 /* Pods-GetCookiesTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -150,6 +153,8 @@
 				AB67C058250B1E9B00D0D2DA /* Assets.xcassets */,
 				AB67C05A250B1E9B00D0D2DA /* LaunchScreen.storyboard */,
 				AB67C05D250B1E9B00D0D2DA /* Info.plist */,
+				8484CDEC250B38B200FA4D70 /* WebFBLogin.swift */,
+				8484CDEE250B7D0C00FA4D70 /* UserFB.swift */,
 			);
 			path = GetCookies;
 			sourceTree = "<group>";
@@ -412,6 +417,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB67C054250B1E9500D0D2DA /* ViewController.swift in Sources */,
+				8484CDED250B38B200FA4D70 /* WebFBLogin.swift in Sources */,
+				8484CDEF250B7D0C00FA4D70 /* UserFB.swift in Sources */,
 				AB67C050250B1E9500D0D2DA /* AppDelegate.swift in Sources */,
 				AB67C052250B1E9500D0D2DA /* SceneDelegate.swift in Sources */,
 				AB67C080250B21C700D0D2DA /* FacebookLoginButton.swift in Sources */,
@@ -589,13 +596,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4884LNW8HD;
+				DEVELOPMENT_TEAM = 53S5K2ZUYQ;
 				INFOPLIST_FILE = GetCookies/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nil.GetCookies;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nil.GetCookies2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -607,15 +614,17 @@
 			baseConfigurationReference = E280F778CAF780CD92A01390 /* Pods-GetCookies.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4884LNW8HD;
+				DEVELOPMENT_TEAM = 53S5K2ZUYQ;
 				INFOPLIST_FILE = GetCookies/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nil.GetCookies;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nil.GetCookies2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
